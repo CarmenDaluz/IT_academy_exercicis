@@ -1,27 +1,23 @@
-num1: int = int(input("introduzca un número:"))
-num2: int = int(input("introduzca otro número:"))
-operador: str = str(input("introduzca +,-,*,/"))
+# EXERICI 5
+# Fer un programa que demani dos números i un operador(+,-,x,/).
 
-if operador == "+":
-    print(num1 + num2)
-elif operador == "-":
-    print(num1 - num2)
-elif operador == "*":
-    print(num1 * num2)
-elif operador == "/":
-    print(num1 / num2)
+# Al final, el programa ha d'imprimir per pantalla el resultat de fer l’operació que contingui la variable operador.
 
-match operador:
-    case "+":
-        print(f'El resultat es: {num1 + num2:.2f}') #.2f es 2 decimales
-    case "-":
-        print(f'El resultat es: {num1 - num2:.2f}') #.2f es 2 decimales
-    case "*":
-        print(f'El resultat es: {num1 * num2:.2f}') #.2f es 2 decimales
-    case "/":
-        if num2 != 0:
-            print(f"El resultat es: {num1 / num2:.2f}") #.2f es 2 decimales
-        else:
-            print('No es pot dividir entre zero')
-    
+num1: int = int(input('Elige un número: '))
+num2: int = int(input('Elige otro número: '))
+operator: str = (input('Elige un operador +,-,x,/: '))
 
+match operator:
+  case '+':
+    print(f"{num1} + {num2}= {num1 + num2:.2f}")
+  case '-':
+    print(f"{num1} - {num2}= {num1 - num2:.2f}")
+  case 'x':
+    print(f"{num1} x {num2}= {num1 * num2:.2f}")
+  case '/':
+    if num2 != 0:
+      print(f"{num1} / {num2}= {num1 / num2:.2f}")
+    else:
+      print('No es pot dividir entre zero')
+  case _:
+    print("error")
