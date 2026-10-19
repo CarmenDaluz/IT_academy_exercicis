@@ -9,12 +9,12 @@
 print('Will you guess what random number will apear?')
 number: int = int(input('Choose a number: '))
 intento = 1 
-
+MAX_INTENTS: int = 5
 import random
 num_random = random.randint(1, 10)
 
 
-while number != num_random and intento < 5:
+while number != num_random and intento < MAX_INTENTS:
     print('No has acertado ¿Vuelves a probar?')
     number: int = int(input(f'Elige un número. Tienes {5 - intento} intentos: '))
     intento += 1

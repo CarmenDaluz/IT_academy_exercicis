@@ -6,9 +6,9 @@
 # El programa anirà demanant les dades dels/les alumnes fins que es donin aquestes 5 beques. Un cop el programa hagi assignat les 5 beques s’ha de mostrar per pantalla els noms dels/les 5 alumnes que tenen beca.
 
 becas: list = []
-maxBecas: int  = 5
+MAX_BECAS: int  = 5
 
-while len(becas) < maxBecas:
+while len(becas) < MAX_BECAS:
     age: int = int(input(f'Alumno nº{len(becas) + 1} ¿Cuál es tu edad?: '))
     title: str = (input('¿Tienes título universitario? si /no: ')).lower()
     paro: str = (input('¿Estás en paro? si/no: ')).lower()
@@ -25,4 +25,4 @@ while len(becas) < maxBecas:
         print('Lo siento, no se te ha concedido la beca')
               
  
-print(f'Los {maxBecas} alumnos con beca son: {', '.join(becas)}') #ESTO SE USA??       
+print(f'Los {MAX_BECAS} alumnos con beca son: {', '.join(becas)}') #ESTO SE USA??       
