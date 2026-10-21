@@ -12,7 +12,7 @@ def demanarEnterRang() -> int: #Pide y valida
     return numParticipants
     
 
-def recollirVots(numParticipants: int) -> tuple: #varias listas
+def recollirVots(numParticipants: int) -> list: 
     aPeu: list = []
     bicicleta: list = []
     transportPublic: list = []
@@ -30,15 +30,15 @@ def recollirVots(numParticipants: int) -> tuple: #varias listas
             case 3:
                 transportPublic.append(i)
             
-    return aPeu, bicicleta, transportPublic
+    return [aPeu, bicicleta, transportPublic]
 
-def calcularPercentatges(numParticipants: int, aPeu: list, bicicleta: list, transportPublic: list) -> tuple:
+def calcularPercentatges(numParticipants: int, aPeu: list, bicicleta: list, transportPublic: list) -> list:
 
     percentatgeAPeu = (len(aPeu) / numParticipants) * 100
     percentatgeBicicleta = (len(bicicleta) / numParticipants) * 100
     percentatgeTransportPublic = (len(transportPublic) / numParticipants) * 100
 
-    return percentatgeAPeu, percentatgeBicicleta, percentatgeTransportPublic
+    return [percentatgeAPeu, percentatgeBicicleta, percentatgeTransportPublic]
 
 def mostrarResultats(aPeu: list, bicicleta: list, transportPublic:list, percentatgeAPeu: float, percentatgeBicicleta: float, percentatgeTransportPublic: float):
   
