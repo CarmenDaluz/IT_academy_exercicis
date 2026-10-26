@@ -15,27 +15,26 @@
 
 # lista2:int  = int(input("Escribe otra lista de números: "))
 
-def añadirLista1():
+def comprobarNumIguales(lista1: list[int], lista2: list[int]) -> bool:
+    duplicado: bool = False
+    resultado = []
+    
     for i in lista1:
-        if i not in resultado:
-            resultado.append(i)
-    return i
+        for j in lista2:
+            if i == j:
+                duplicado = True
+                
+    if duplicado:
+        resultado.append(i)
+    return duplicado
 
-def igualarListas():
-    for x in lista2:
-        if x not in resultado:
-            resultado.append(x)
+# def añadirIguales(duplicado: bool, resultado: list[int]):
+  
 
 def main():
-    añadirLista1()
-    igualarListas()
-    resultadoOrdenado = sorted(resultado)
-    print(resultadoOrdenado)
-    
-lista1 = [1, 1, 2, 4, 3]
-lista2 = [3, 4, 5]
+    lista1 = [1, 1, 2, 4, 3]
+    lista2 = [3, 4, 5]
 
-resultado = []
-
-    
+    comprobarNumIguales(lista1, lista2)
+main()
 

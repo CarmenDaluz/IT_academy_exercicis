@@ -2,26 +2,40 @@
 
 # Exemple: 56 (cinquanta-sis) o 56 (cincuenta y seis)
 
-num: int = int(input('Escribe un número entre 0 y 99: '))
 
 
+def pedirNum() -> int:
+  num: int = int(input('Escribe un número entre 0 y 99: '))
+  while num < 0 or num > 99:
+    num: int = int(input('Error. El número tiene que estar entre 0 y 99. Prueba otra vez: '))
 
-if num >= 0 and num <=99:
-    print('')
+  return num
 
-day = 4
-match day:
-  case 1:
-    print("Monday")
-  case 2:
-    print("Tuesday")
-  case 3:
-    print("Wednesday")
-  case 4:
-    print("Thursday")
-  case 5:
-    print("Friday")
-  case 6:
-    print("Saturday")
-  case 7:
-    print("Sunday")
+
+numUnicos: list[str] = ['cero','uno', 'dos', 'tres', 'cuatro',' cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez', 'once', 'doce', 'trece','catorce',
+                         'quince', 'dieciseis', 'diecisiete', 'dieciocho', 'diecinueve', 'veinte', 'veintiuno', 'veintidos', 'veintitres', 'veinticuatro', 
+                         'veinticinco', 'veintiseis', 'veintisiete', 'veintiocho', 'veintinueve']
+
+numDecenas: list[str] =['', '', 'veinte','treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa']
+
+
+def numeroAPalabras(num: int):
+
+  if num < 30:
+    print(numUnicos[num])
+  
+  else:
+    decena = num // 10 
+    unidad = num % 10
+
+    if unidad == 0:
+      print(numDecenas[decena])
+    else:
+      print(f'{numDecenas[decena]} y {numUnicos[unidad]}')
+
+
+def main():
+  numero =  pedirNum()
+  numeroAPalabras(numero)
+
+main()

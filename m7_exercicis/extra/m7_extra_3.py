@@ -40,7 +40,7 @@ def calcularPercentatges(numParticipants: int, aPeu: list, bicicleta: list, tran
 
     return [percentatgeAPeu, percentatgeBicicleta, percentatgeTransportPublic]
 
-def mostrarResultats(aPeu: list, bicicleta: list, transportPublic:list, percentatgeAPeu: float, percentatgeBicicleta: float, percentatgeTransportPublic: float):
+def mostrarResultats(aPeu: list, bicicleta: list, transportPublic:list, percentatgeAPeu: float, percentatgeBicicleta: float, percentatgeTransportPublic: float) -> None:
   
     print(f'A peu van {len(aPeu)} persones, un {percentatgeAPeu:.2f}%; en bicicleta {len(bicicleta)} persones, un {percentatgeBicicleta:.2f}%; y en transport public van {len(transportPublic)} persones, un {percentatgeTransportPublic:.2f}%')
     

@@ -20,24 +20,47 @@
         
 # print(edadMedia)
 
+# def edadMedia(numPersonas: int) -> float:
+#     sumaEdats: int = 0
+#     contadorPersonas: int = 0
+
+#     EDAD_MIN: int = 0
+#     EDAD_MAX: int = 120
+
+#     while contadorPersonas < numPersonas:
+#         edad: int = int(input(f'Qué edad tiene la persona número {numPersonas}: '))
+
+#         if edad < EDAD_MIN or edad > EDAD_MAX:
+#             print('Error, la edad ha de estar entre 0 y 120')
+#         else:
+#             sumaEdats = sumaEdats + edad
+#             contadorPersonas = sumaEdats + 1
+#     media: float =  sumaEdats / numPersonas
+#     return media
+
 def edadMedia(numPersonas: int) -> float:
-    sumaEdats: int = 0
-    contadorPersonas: int = 0
 
     EDAD_MIN: int = 0
     EDAD_MAX: int = 120
+    sumaEdats: int = 0
 
-    while contadorPersonas < numPersonas:
-        edad: int = int(input(f'Qué edad tiene la persona número {numPersonas}: '))
+    for i in range(1, numPersonas + 1):
+        edad: int = int(input(f'Qué edad tiene la persona número {i}: '))
+        
+        while edad < EDAD_MIN or edad > EDAD_MAX:
+            i - 1
+            edad: int = int(input(f'Error, la edad ha de estar entre 0 y 120. Qué edad tiene la persona nº{i}?: '))
+        
+        sumaEdats = sumaEdats + edad
 
-        if edad < EDAD_MIN or edad > EDAD_MAX:
-            print('Error, la edad ha de estar entre 0 y 120')
-        else:
-            sumaEdats = sumaEdats + edad
-            contadorPersonas = sumaEdats + 1
     media: float =  sumaEdats / numPersonas
     return media
 
-numPersonas: int = int(input('Escribe un número de personas: '))
-edad
-print(edadMedia)
+# PROGRAMA PRINCIPAL:
+
+def main():
+    numPersonas: int = int(input('Escribe un número de personas: '))
+    resultado: float = edadMedia(numPersonas)
+    print(f'La edad media es de {resultado:.2f}')
+
+main()

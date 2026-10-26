@@ -17,25 +17,27 @@ def dividir(num1: int, num2: int) -> float | None:
           print('No es pot dividir entre zero')
           return None 
     return num1 / num2
-# def divExacta(num1:int, num2:int) -> str:
-#    if num2 == 0:
-#       return "El divisor no pot ser 0"
-#    
 
+def modulo(num1: int, num2: int) -> int:
+    return num1 % num2
+
+#PROGRAMA PRINCIPAL
 
 num1: int = int(input('Elige un número: '))
 num2: int = int(input('Elige otro número: '))
-operator: str = (input('Elige un operador +,-,x,/: '))
+operator: str = (input('Elige un operador +,-,x,/, %: '))
 
 match operator:
   case '+':
-    print(sumar(num1,num2))
+    print(f'El resultado de {num1} {operator} {num2} = {sumar(num1,num2)}')
   case '-':
-    print(restar(num1,num2)), 
+    print(f'El resultado de {num1} {operator} {num2} = {restar(num1,num2)}'), 
   case 'x':
-    print(multiplicar(num1,num2)), 
+    print(f'El resultado de {num1} {operator} {num2} = {multiplicar(num1,num2)}'), 
   case '/':
-    print(dividir(num1,num2)), 
+    print(f'El resultado de {num1} {operator} {num2} = {dividir(num1,num2)}'), 
+  case '%':
+    print(f'El resultado de {num1} {operator} {num2} = {modulo(num1,num2)}'), 
 
   case _:
-    print("error")
+    print("Error, el operador no es válido")

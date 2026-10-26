@@ -4,10 +4,28 @@
 
 # Fórmula (0 °C  × 9 / 5) + K = 32 °F
 
-temp:int = int(input('Introduce una temperatura: '))
-fah: float = temp*9/5+32
-print(f'La temperatura de {temp} ºC es {fah} en ºFahrenheit')
 
-# def convertirFah():
-#dos funciones una de convertir a fahrenheit y otra al reves, es hacer la conversion y retornar
+
+def deCelsiusaFahrenheit(tempCelsius: float) -> float:
+    
+    fah: float = (tempCelsius * 9 / 5) + K
+
+    return fah
+
+def deFahrenheitaCelsius(tempFah: float) -> float:
+    
+    celsius: float = (tempFah - K) * 5/9
+
+    return celsius
+
+K: int = 32
+tempCelsius: float = float(input('Introduce una temperatura en grados centígrados: '))
+fah = deCelsiusaFahrenheit(tempCelsius)
+print(f'La temperatura de {tempCelsius}°C es {fah:.2f}°F en Fahrenheit')
+
+tempFah: float = float(input('Introduce una temperatura en fahrenheit: '))
+celsius =  deFahrenheitaCelsius(tempFah)
+print(f'La temperatura de {tempFah}°F es {celsius:.2f}°C en Celsius')
+
+
 

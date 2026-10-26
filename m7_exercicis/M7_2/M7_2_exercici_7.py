@@ -12,7 +12,7 @@ def esTraspas(a: int)-> bool:
     return False
 
 def main():
-    a:int  = int(input("Introdueix un any: "))
+    a: int  = int(input("Introdueix un any: "))
     esTraspas(a)
     while not esTraspas(a):
         a:int  = int(input("No es traspas, Introdueix otre any: "))
