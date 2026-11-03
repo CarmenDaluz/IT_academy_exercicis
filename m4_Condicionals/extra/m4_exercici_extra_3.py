@@ -3,10 +3,6 @@
 # Retorna un nombre aleatori entre 1 i 3 (inclosos).
 
 
-#  Per saber més
-
-# -> https://www.w3schools.com/python/module_random.asp
-
 # Escriu un programa que et permeti jugar pedra, paper o tisora ​​amb l'ordinador.
 
 # Per a això l'ordinador haurà de generar un nombre aleatori entre 1 i 3 que representi pedra, paper o tisora ​​respectivament, i l'usuari/ària haurà de respondre al seu torn amb un nombre entre l'1 i el 3 després de mostrar la següent pantalla:

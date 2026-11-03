@@ -25,4 +25,4 @@ while len(becas) < MAX_BECAS:
         print('Lo siento, no se te ha concedido la beca')
               
  
-print(f'Los {MAX_BECAS} alumnos con beca son: {', '.join(becas)}') #ESTO SE USA??       
+print(f'Los {MAX_BECAS} alumnos con beca son: ', * becas)    
