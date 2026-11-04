@@ -17,12 +17,31 @@ class Cliente:
     def getDni(self) -> str:
         return self.__dni
        
-
-# Mètodes SETTERS
-
-
+    def getCuentas(self) -> list[Cuenta]:
+         return self.__cuentas
+    
 # Otres mètodes
+
+    def addCuenta(self, cuenta: Cuenta) -> None:
+        self.__cuentas.append(cuenta)
+
+        
+    def mostrarCuenta(self) -> None:
+        print(self)
+        if len(self.__cuentas) == 0:
+            print('Este cliente no tiene cuentas asociadas')
+            return
+
+        for cuenta in self.__cuentas:
+            print(cuenta)
+
+
+    def buscarCuenta(self, numCuentaBuscada: int) -> Cuenta | None:
+        for cuenta in self.__cuentas:
+            if cuenta.getNumCuenta() == numCuentaBuscada:
+                return cuenta
+        return None
 
 
     def __str__(self) -> str: 
-        return f"Nombre: {self.__nombre} | Apellido: {self.__apellido} | DNI: {self.__dni} "
+        return f"Nombre: {self.__nombre} | Apellido: {self.__apellido} | DNI: {self.__dni}"

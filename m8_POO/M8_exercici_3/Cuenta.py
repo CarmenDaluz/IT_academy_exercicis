@@ -8,7 +8,7 @@ class Cuenta:
    
 
 # Mètodes GETTERS
-    def getnumCuenta(self) -> int:
+    def getNumCuenta(self) -> int:
         return self.__numCuenta
     
     def getSaldo(self) -> float:

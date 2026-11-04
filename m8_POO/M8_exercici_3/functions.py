@@ -1,4 +1,5 @@
 from Cliente import Cliente
+from Cuenta import Cuenta
 
 def mostrarMenu():
     menu: list[str] = ['\nBienvenido/a a tu banco:',
@@ -46,16 +47,55 @@ def eliminarCliente(clientesList: list[Cliente]):
     dniClienteEliminar: str = input('Escribe el dni del cliente que quieras eliminar:')
     clienteBuscarCliente: Cliente | None = buscarCliente(clientesList, dniClienteEliminar)
     
-    if buscarCliente(clientesList, dniClienteEliminar) is not None:
-        print('Cliente eliminado')
-        clientesList.remove(clienteBuscarCliente)
+    if clienteBuscarCliente is None:
+        print('El cliente no está dado de alta')
+        return
+
+    print('Cliente eliminado')
+    clientesList.remove(clienteBuscarCliente)
 
 
-def crearCuenta():
-    pass
+def crearCuenta(clientesList: list[Cliente]) -> None:
+    dniClienteBuscado: str = input('Escribe tu dni: ')
+    cliente: Cliente | None = buscarCliente(clientesList, dniClienteBuscado)
+    
+    if cliente is None:
+        print('No hay clientes registrados con este dni. Debe registrarse antes')
+        return
+    
+    numCuenta: int = int(input('Escribe el número de cuenta: '))
+    
+    if cliente.buscarCuenta(numCuenta) is not None:
+        print('Ya esxiste una cuenta con ese nº')
+        return
+    
+    cliente.addCuenta(Cuenta(numCuenta))
+    print(f'Cuenta {numCuenta} creada para {cliente.getNombre()}')
 
-def ingresarEurosCuenta():
-    pass
+
+def ingresarEurosCuenta(clientesList: list[Cliente]):
+    dniCliente: str = input('Accede a tu cuenta con tu dni: ')
+    numCuenta: int = int(input('Escribe el número de cuenta: '))
+    cliente: Cliente | None = buscarCliente(clientesList, dniCliente)
+
+    if cliente is None: 
+        print('No existe este cliente')
+        return
+    
+    cuenta: Cuenta | None = cliente.buscarCuenta(numCuenta)
+    if cuenta is None:
+        print('No existe esta cuenta')
+        return
+  
+    cantidadIngresar: int = int(input('Qué cantidad quieres ingresar: '))
+    cuenta.ingresar(cantidadIngresar)
+    
+    
+        
+    dineroAñadir: int = int(input('¿Cuánto quieres añadir?: '))
+
+
+
 
 def retirarEurosCuenta():
     pass

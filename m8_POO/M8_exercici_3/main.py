@@ -1,5 +1,7 @@
 from functions import (
-    mostrarMenu, crearCliente, eliminarCliente, crearCuenta, ingresarEurosCuenta, retirarEurosCuenta 
+    mostrarMenu, crearCliente, eliminarCliente, 
+    crearCuenta, ingresarEurosCuenta, 
+    retirarEurosCuenta 
     )
 from Cuenta import Cuenta
 from Cliente import Cliente
@@ -18,11 +20,11 @@ def main() -> None:
         if opcion == 1:
             crearCliente(clientes)
         elif opcion == 2:
-            eliminarCliente()
+            eliminarCliente(clientes)
         elif opcion == 3:
-            crearCuenta()
+            crearCuenta(clientes)
         elif opcion == 4:
-            ingresarEurosCuenta()
+            ingresarEurosCuenta(clientes)
         elif opcion == 5:
             retirarEurosCuenta()
         else:
