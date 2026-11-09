@@ -73,15 +73,15 @@ def crearCuenta(clientesList: list[Cliente]) -> None:
     print(f'Cuenta {numCuenta} creada para {cliente.getNombre()}')
 
 
-def ingresarEurosCuenta(clientesList: list[Cliente]):
+def ingresarEurosCuenta(clientesList: list[Cliente]) -> None:
     dniCliente: str = input('Accede a tu cuenta con tu dni: ')
-    numCuenta: int = int(input('Escribe el número de cuenta: '))
     cliente: Cliente | None = buscarCliente(clientesList, dniCliente)
 
     if cliente is None: 
         print('No existe este cliente')
         return
     
+    numCuenta: int = int(input('Escribe el número de cuenta: '))
     cuenta: Cuenta | None = cliente.buscarCuenta(numCuenta)
     if cuenta is None:
         print('No existe esta cuenta')
@@ -89,13 +89,27 @@ def ingresarEurosCuenta(clientesList: list[Cliente]):
   
     cantidadIngresar: int = int(input('Qué cantidad quieres ingresar: '))
     cuenta.ingresar(cantidadIngresar)
+    print(f'Se ha ingresado {cantidadIngresar}€ en la cuenta {numCuenta}')
+    cuenta.devolverSaldo()
+
+def retirarEurosCuenta(clientesList: list[Cliente]):
+    dniCliente: str = input('Accede a tu cuenta con tu dni: ')
+    cliente: Cliente | None = buscarCliente(clientesList, dniCliente)
+
+    if cliente is None: 
+        print('No existe este cliente')
+        return
     
+    numCuenta: int = int(input('Escribe el número de cuenta: '))
+    cuenta: Cuenta | None = cliente.buscarCuenta(numCuenta)
+    if cuenta is None:
+        print('No existe esta cuenta')
+        return
+  
+    cantidadRetirar: int = int(input(f'Hay un saldo de {cuenta.getSaldo()}€. ¿Qué cantidad quieres retirar: '))
+    if not cuenta.retirar(cantidadRetirar):
+        print('Saldo insufuiciente')
+        return
     
-        
-    dineroAñadir: int = int(input('¿Cuánto quieres añadir?: '))
-
-
-
-
-def retirarEurosCuenta():
-    pass
+    print(f'Se ha retirado {cantidadRetirar}€ de la cuenta {numCuenta}. Queda {cuenta.getSaldo()}€')
+    cuenta.devolverSaldo()
